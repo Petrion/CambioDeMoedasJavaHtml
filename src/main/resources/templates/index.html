@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Conversor de Moedas</title>
+  <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body class="bg">
+
+  <h1 id="titulo">Conversor de Moedas</h1>
+
+  <div class="container">
+    <fieldset class="agrupamento">
+      <form action="/converter" method="post" th:object="${elementos}">
+        <fieldset>
+          <div>
+            <input class="valor" min="0" type="number" th:field="*{moedaB}"/>
+            <select th:field="*{moedaA}">
+              <option value="BRL-USD"  >Real(BRL) para Dolar(USD)</option>
+              <option value="USD-BRL"  >Dolar(USD) para Real(BRL)</option>
+            </select>
+            <input class="botao" type="submit" value="Converter" />
+          </div>
+        </fieldset>
+      </form>
+    </fieldset>
+  </div>
+  <fieldset class="resultado">
+    <div class="mensagem">
+      <p id="subtitulo">Resultado da conversão:</p>
+      <p id="msg" th:text="${mensagem}"></p>
+    </div>
+  </fieldset>
+
+</body>
+</html>
